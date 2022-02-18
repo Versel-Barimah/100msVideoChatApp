@@ -5,5 +5,6 @@ const router = express.Router();
 const VideoController = require('./controllers/100ms.controller');
 
 router.get('/', [VideoController.createMeeting])
+router.post('/', [VideoController.JoinRoom])
 
 module.exports = router
