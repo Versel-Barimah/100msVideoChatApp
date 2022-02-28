@@ -21,3 +21,33 @@ exports.JoinRoom = (req, res) => {
     // const join = Model.JoinRoom(req.body)
 
 }
+
+exports.arrayStack = (req, res) => {
+    // palidrom
+    //get an array stackl
+    //push, pop, peek
+    var stack = [];
+    var word = racecar
+    var rword = ""
+    //reverse word
+
+    for (var i = 0; i < word.length; i++) {
+        stack.push(word[i]);
+    }
+
+    for (var i = 0; i < word.length; i++) {
+        rword += stack.pop()
+    }
+
+    if (stack === rword) {
+        res.send({
+            word: "word is a palendrom"
+        })
+    } else {
+        res.send({
+            word: "word is not a palendrom"
+        })
+    }
+
+    //compare and give result
+}
