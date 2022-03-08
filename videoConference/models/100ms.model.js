@@ -1,31 +1,38 @@
-// import { HMSReactiveStore } from '@100mslive/hms-video-store';
 
-const HMSReactiveStore = require('@100mslive/hms-video-store');
-const hms = HMSReactiveStore();
-const hmsStore = hms.getStore;
-const hmsActions = hms.getHMSActions;
+import pkg from '@100mslive/hms-video-store';
+const { HMSReactiveStore } = pkg;
 
-// import config
-const config = require('../../config');
+const hms = new HMSReactiveStore();
+const hmsStore = hms.getStore();
+const hmsActions = hms.getHMSActions();
 
 
-exports.CreateRoom = (id) => {
-    return id;
+import config from '../../config.js'
+
+const Model = {
+    CreateRoom: (id) => {
+        return id;
+    },
+
+    JoinRoom: (UserRequest) => {
+
+        const result = hmsActions.join({
+            userName: UserRequest.userName,
+            authToken: config.getToken(UserRequest.userRole),
+            settings: {
+                isAudioMuted: true
+            }
+        });
+        return result;
+    }
+
+    // exports.LeaveRoom:() => {
+
+    // }
+
+    // exports.MuteTrack:() => {
+
+    // }
 }
 
-exports.JoinRoom = (UserRequest) => {
-
-    const result = hmsActions.join({
-        userName: UserRequest.userName,
-        authToken: config.getToken(UserRequest.userRole)
-    });
-    return result;
-}
-
-exports.LeaveRoom = () => {
-
-}
-
-exports.MuteTrack = () => {
-
-}
+export default Model;

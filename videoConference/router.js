@@ -1,11 +1,12 @@
-const express = require("express");
+
+import express from 'express';
 const router = express.Router();
 
-// import controller
-const VideoController = require('./controllers/100ms.controller');
+// const VideoController = require('./controllers/100ms.controller');
+import VideoController from './controllers/100ms.controller.js'
 
-router.get('/', [VideoController.createMeeting])
-router.post('/', [VideoController.JoinRoom])
-router.post("/datastructure", [VideoController.arrayStack])
+router.get('/', [VideoController.createMeeting]);
+router.post('/join', [VideoController.JoinRoom]);
 
-module.exports = router
+// module.exports = router
+export default router;

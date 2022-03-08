@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -10,11 +11,12 @@
   "author": "Anumadu Moses",
   "license": "ISC",
   "dependencies": {
-    "@100mslive/hms-video": "^0.1.43",
-    "@100mslive/hms-video-store": "^0.2.89",
+    "@100mslive/hms-video": "^0.1.44",
+    "@100mslive/hms-video-store": "^0.2.90",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^3.2.2",
     "uuid4": "^2.0.2"
   },
   "devDependencies": {
